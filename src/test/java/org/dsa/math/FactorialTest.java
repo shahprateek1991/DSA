@@ -33,4 +33,25 @@ class FactorialTest {
         assertEquals(6, Factorial.factorialRecursive(3));
         assertEquals(1, Factorial.factorialRecursive(1));
     }
+
+    @Test
+    void shouldReturnZeroGivenNoTrailingZeroInFactorialOfAGivenNumber() {
+        assertEquals(0, Factorial.trailingZeroInFactorial(1));
+        assertEquals(0, Factorial.trailingZeroInFactorial(3));
+        assertEquals(0, Factorial.trailingZeroInFactorial(4));
+    }
+
+    @Test
+    void shouldReturnTrailingZeroForFactorialOfAGivenNumberThatDoesNotHaveMultipleOfFives() {
+        assertEquals(1, Factorial.trailingZeroInFactorial(5));
+        assertEquals(1, Factorial.trailingZeroInFactorial(8));
+        assertEquals(2, Factorial.trailingZeroInFactorial(10));
+        assertEquals(2, Factorial.trailingZeroInFactorial(13));
+    }
+
+    @Test
+    void shouldReturnTrailingZeroForFactorialOfAGivenNumberThatDoesHaveMultipleOfFives() {
+        assertEquals(6, Factorial.trailingZeroInFactorial(25));
+        assertEquals(31, Factorial.trailingZeroInFactorial(126));
+    }
 }

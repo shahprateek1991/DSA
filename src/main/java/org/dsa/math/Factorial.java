@@ -17,4 +17,12 @@ public class Factorial {
         if (n== 0) return 1;
         return n * factorialRecursive(n-1);
     }
+
+    public static int trailingZeroInFactorial(int number) {
+        int count = 0;
+        for (int i = 5; i <= number; i = i * 5) {
+            count = count + (number/i);
+        }
+        return count;
+    }
 }
