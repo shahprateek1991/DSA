@@ -23,9 +23,4 @@ class PowerTest {
         assertEquals(8, Power.exponentRecursive(2, 3));
         assertEquals(343, Power.exponentRecursive(7, 3));
     }
-
-    @Test
-    void name() {
-        assertEquals(1, Power.myPow(2.00000, -2147483648));
-    }
 }
