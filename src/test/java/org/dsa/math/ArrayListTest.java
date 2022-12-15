@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayTest {
+class ArrayListTest {
 
     @Test
     void shouldAddElementAtTheLastPosition() {
-        Array array = new Array();
+        ArrayList arrayList = new ArrayList();
 
-        array.add(100);
-        array.add(500);
+        arrayList.add(100);
+        arrayList.add(500);
 
-        assertArrayEquals(new int[]{100, 500}, array.getArray());
+        assertArrayEquals(new int[]{100, 500}, arrayList.getArray());
     }
 }

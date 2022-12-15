@@ -2,16 +2,16 @@ package org.dsa.math;
 
 import java.util.Arrays;
 
-public class Array {
+public class ArrayList {
     private int[] array;
     private int nextAvailableIndex;
 
-    public Array() {
+    public ArrayList() {
         this(10);
 
     }
 
-    public Array(int size) {
+    public ArrayList(int size) {
         array = new int[size];
         nextAvailableIndex = 0;
     }
