@@ -2,6 +2,10 @@ package org.dsa.math;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayTest {
@@ -56,5 +60,45 @@ class ArrayTest {
         assertArrayEquals(new int[] {2,3,4,5,1}, Array.rotateLeftArrayWithoutExtraSpace(new int[]{1,2,3,4,5}, 1));
         assertArrayEquals(new int[] {3,4,5,1,2}, Array.rotateLeftArrayWithoutExtraSpace(new int[]{1,2,3,4,5}, 2));
         assertArrayEquals(new int[] {15,10,5,30}, Array.rotateLeftArrayWithoutExtraSpace(new int[]{10,5,30,15}, 3));
+    }
+
+    @Test
+    void shouldReturnLeadersForAGivenArray() {
+        assertEquals(List.of(2,5,6,10), Array.leaders(new int[]{7,10,4,10,6,5,2}));
+        assertEquals(List.of(30), Array.leaders(new int[]{10,20,30}));
+        assertEquals(List.of(10,20,30), Array.leaders(new int[]{30,20,10}));
+    }
+
+    @Test
+    void shouldReturnMaximumDifferenceOfArrayInOrder() {
+        assertEquals(8, Array.maximumDifference(new int[] {2,3,10,6,4,8,1}));
+        assertEquals(2, Array.maximumDifference(new int[] {7,9,5,6,3,2}));
+        assertEquals(20, Array.maximumDifference(new int[] {10,20,30}));
+        assertEquals(-2, Array.maximumDifference(new int[] {30,10,8,2}));
+    }
+
+    @Test
+    void shouldPrintFrequencyOfNumbersInSortedArray() {
+        Array.frequencyInSortedArray(new int[]{10,20,20,30,30,30,30});
+        Array.frequencyInSortedArray(new int[]{10,10,10,30,40});
+        Array.frequencyInSortedArray(new int[]{10,20,30,40,50});
+    }
+
+    @Test
+    void shouldCountNumberOfMaximumConsecutiveOnes() {
+        assertEquals(2, Array.maxConsecutiveOnes(new int[] {0,1,1,0,1}));
+        assertEquals(4, Array.maxConsecutiveOnes(new int[] {0,1,1,1,1}));
+        assertEquals(0, Array.maxConsecutiveOnes(new int[] {0,0,0,0}));
+        assertEquals(4, Array.maxConsecutiveOnes(new int[] {1,1,1,1}));
+        assertEquals(1, Array.maxConsecutiveOnes(new int[] {1,0,1}));
+        assertEquals(3, Array.maxConsecutiveOnes(new int[] {1,0,1,0,1,1,1}));
+    }
+
+    @Test
+    void shouldReturnMaximumSumOfSubArray() {
+        assertEquals(4, Array.maximumSubArraySum(new int[]{-5,1,-2,3,-1,2,-2}));
+        assertEquals(11, Array.maximumSubArraySum(new int[]{2,3,-8,7,-1,2,3}));
+        assertEquals(16, Array.maximumSubArraySum(new int[]{5,8,3}));
+        assertEquals(-3, Array.maximumSubArraySum(new int[]{-5,-8,-3}));
     }
 }

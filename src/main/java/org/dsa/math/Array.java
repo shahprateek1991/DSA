@@ -1,6 +1,8 @@
 package org.dsa.math;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Array {
 
@@ -72,8 +74,8 @@ public class Array {
     }
 
     public static int[] rotateLeftArrayWithoutExtraSpace(int []arr, int rotateFactor) {
-        arr = reverse(arr, 0, rotateFactor-1);
-        arr = reverse(arr, rotateFactor, arr.length-1);
+        reverse(arr, 0, rotateFactor - 1);
+        reverse(arr, rotateFactor, arr.length - 1);
         return reverse(arr, 0, arr.length-1);
     }
 
@@ -86,8 +88,72 @@ public class Array {
             low++;
             high--;
         }
-
         return arr;
+    }
+
+    public static List<Integer> leaders(int[] arr) {
+        List<Integer> leaders = new ArrayList<>();
+        int currentLeader = arr[arr.length-1];
+        leaders.add(currentLeader);
+        for (int i = arr.length-2; i>=0; i--) {
+            if (arr[i] > currentLeader) {
+                currentLeader = arr[i];
+                leaders.add(arr[i]);
+            }
+        }
+        return leaders;
+    }
+
+    public static int maximumDifference(int[] arr) {
+        int minValue = arr[0];
+        int difference = arr[1]-arr[0];
+
+        for (int i = 1; i<arr.length; i++) {
+            difference = Math.max(difference, arr[i]-minValue);
+            minValue = Math.min(minValue, arr[i]);
+        }
+
+        return difference;
+    }
+
+    public static void frequencyInSortedArray(int[] arr) {
+        for (int i = 0; i<arr.length;) {
+            int count = 0;
+            int currentElement = arr[i];
+            while (i < arr.length && arr[i] == currentElement ) {
+                count++;
+                i++;
+            }
+
+            System.out.println(currentElement +" time " + count);
+        }
+    }
+
+    public static int maxConsecutiveOnes(int[] arr) {
+        int max = 0;
+        for (int i = 0; i<arr.length;) {
+            int currentCount = 0;
+            while (i< arr.length && arr[i] == 1){
+                currentCount++;
+                i++;
+            }
+
+            max = Math.max(max, currentCount);
+            i++;
+        }
+
+        return max;
+    }
+
+    public static int maximumSubArraySum(int[] arr) {
+        int result = arr[0];
+        int sumOfPrevSubArray = arr[0];
+        for (int i = 1; i<arr.length; i++) {
+            sumOfPrevSubArray = Math.max(sumOfPrevSubArray+arr[i], arr[i]);
+            result = Math.max(result, sumOfPrevSubArray);
+        }
+
+        return result;
     }
 
 }
