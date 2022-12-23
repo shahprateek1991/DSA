@@ -101,4 +101,12 @@ class ArrayTest {
         assertEquals(16, Array.maximumSubArraySum(new int[]{5,8,3}));
         assertEquals(-3, Array.maximumSubArraySum(new int[]{-5,-8,-3}));
     }
+
+    @Test
+    void shouldReturnMaximumLengthOddEvenSeries() {
+        assertEquals(3, Array.maximumOddEvenPair(new int[]{5,10,20,6,3,8}));
+        assertEquals(3, Array.maximumOddEvenPair(new int[]{10,12,14,7,8}));
+        assertEquals(4, Array.maximumOddEvenPair(new int[]{7,10,13,14}));
+        assertEquals(1, Array.maximumOddEvenPair(new int[]{10,12,8}));
+    }
 }

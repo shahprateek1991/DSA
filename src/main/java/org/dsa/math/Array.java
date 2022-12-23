@@ -156,4 +156,20 @@ public class Array {
         return result;
     }
 
+    public static int maximumOddEvenPair(int[] arr) {
+        int result = 1;
+        int current = 1;
+        for (int i = 1; i< arr.length; i++) {
+            if ((arr[i] % 2 == 0 && arr[i-1] % 2 !=0) ||
+                    (arr[i-1] % 2 == 0 && arr[i] % 2 !=0)) {
+                current++;
+                result = Math.max(current, result);
+            } else {
+                current = 1;
+            }
+        }
+
+        return result;
+    }
+
 }
