@@ -1,4 +1,4 @@
-package org.dsa.math;
+package org.dsa;
 
 public class PrimeNumber {
     public static boolean isPrime(int number) {

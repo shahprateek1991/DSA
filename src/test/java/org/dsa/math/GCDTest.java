@@ -1,5 +1,6 @@
 package org.dsa.math;
 
+import org.dsa.GCD;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package org.dsa.math;
+package org.dsa;
 
 import java.util.LinkedList;
 import java.util.List;
