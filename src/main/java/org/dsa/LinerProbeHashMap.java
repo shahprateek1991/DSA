@@ -34,18 +34,6 @@ public class ChainingHashMap<V> {
         size++;
     }
 
-    public V delete(int key) {
-        int index = index(key);
-        LinkedList<Entry<V>> entries = hashTable.get(index);
-        for (int i = 0; i< entries.size(); i++) {
-            if (entries.get(i).key == key) {
-                return entries.remove(i).value;
-            }
-        }
-
-        return null;
-    }
-
     public V get(int key) {
         int index = index(key);
         for (Entry<V> entry : hashTable.get(index)) {

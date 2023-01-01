@@ -45,4 +45,16 @@ class ChainingHashMapTest {
 
         assertEquals(3, map.size());
     }
+
+    @Test
+    void shouldRemoveEntryFromTheMap() {
+        ChainingHashMap<String> map = new ChainingHashMap<>(20);
+        map.put(1, "Alan Kay");
+        map.put(3, "Linus Torwald");
+
+        String deleteEntry = map.delete(3);
+
+        assertNull(map.get(3));
+        assertEquals("Linus Torwald", deleteEntry);
+    }
 }
