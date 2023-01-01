@@ -2,15 +2,13 @@ package org.dsa;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class MyHashMapTest {
+class ChainingHashMapTest {
 
     @Test
     void shouldStoreValuesInTheMap() {
-        MyHashMap<String> map = new MyHashMap<>(20);
+        ChainingHashMap<String> map = new ChainingHashMap<>(20);
         map.put(1, "Alan Kay");
         map.put(3, "Linus Torwald");
 
@@ -22,7 +20,7 @@ class MyHashMapTest {
 
     @Test
     void shouldOverrideValuesInTheMapGivenDuplicateKey() {
-        MyHashMap<String> map = new MyHashMap<>(20);
+        ChainingHashMap<String> map = new ChainingHashMap<>(20);
         map.put(1, "Alan Kay");
         map.put(1, "Linus Torwald");
 
@@ -31,7 +29,7 @@ class MyHashMapTest {
 
     @Test
     void shouldReturnSizeOfTheMap() {
-        MyHashMap<String> map = new MyHashMap<>(20);
+        ChainingHashMap<String> map = new ChainingHashMap<>(20);
         map.put(1, "Alan Kay");
         map.put(1, "Linus Torwald");
 
@@ -40,7 +38,7 @@ class MyHashMapTest {
 
     @Test
     void shouldReturnSizeOfTheMapGivenMultipleEntries() {
-        MyHashMap<String> map = new MyHashMap<>(20);
+        ChainingHashMap<String> map = new ChainingHashMap<>(20);
         map.put(1, "Alan Kay");
         map.put(21, "Linus Torwald");
         map.put(5, "Linus Torwald");

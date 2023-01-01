@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MyHashMap<V> {
+public class ChainingHashMap<V> {
 
-    private int capacity;
+    private final int capacity;
     private int size;
     private List<LinkedList<Entry<V>>> hashTable;
 
-    public MyHashMap(int capacity) {
+
+    public ChainingHashMap(int capacity) {
         this.capacity = capacity;
         size = 0;
         hashTable = new ArrayList<>(capacity);
@@ -28,7 +29,6 @@ public class MyHashMap<V> {
                     return;
                 }
             }
-
         }
         entries.add(new Entry<>(key, value));
         size++;
@@ -57,8 +57,8 @@ public class MyHashMap<V> {
     }
 
     public static class Entry<V> {
-        private int key;
-        private V value;
+        private final int key;
+        private final V value;
 
         public Entry(Integer key, V value) {
             this.key = key;
