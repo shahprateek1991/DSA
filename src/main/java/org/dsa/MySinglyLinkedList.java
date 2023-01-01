@@ -34,6 +34,32 @@ public class MySinglyLinkedList<T> {
         size++;
     }
 
+    public void add(int index, T data) {
+        if (size == 0) {
+            head = new Node<>(data);
+            size++;
+            return;
+        }
+
+        if (index >=size) return;
+
+        if (index == 0) {
+            addAtBeginning(data);
+            return;
+        }
+
+
+        Node<T> current = head;
+        for (int i = 0; i < index-1; i++) {
+            current  = current.next;
+        }
+
+        Node<T> newNode = new Node<>(data);
+        newNode.next = current.next;
+        current.next = newNode;
+        size++;
+    }
+
     public T get(int index) {
         if (index >= size) return null;
         Node<T> current  = head;
@@ -51,6 +77,34 @@ public class MySinglyLinkedList<T> {
     public void printRecursively() {
         if (head == null) return;
         printRecursively(head);
+    }
+
+    public T deleteFirst() {
+        if (head == null) return null;
+        Node<T> temp = head;
+        head = head.next;
+        size--;
+
+        return temp.data;
+    }
+
+    public T deletedLast() {
+        if (head == null) return null;
+        if(head.next == null) {
+            T deleted = head.data;
+            head = null;
+            size--;
+            return deleted;
+        }
+        Node<T> temp = head;
+        while (temp.next.next !=null) {
+            temp = temp.next;
+        }
+        T deleted = temp.next.data;
+        temp.next = null;
+        size--;
+
+        return deleted;
     }
 
     private void printRecursively(Node<T> node) {
