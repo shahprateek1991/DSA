@@ -107,6 +107,32 @@ public class MySinglyLinkedList<T> {
         return deleted;
     }
 
+    public int search(T data) {
+        Node<T> current = head;
+        int index = 0;
+        while (current !=null) {
+            if (current.data == data) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+
+        return -1;
+    }
+
+    public int searchRecursive(T data) {
+        return searchRecursive(data, head);
+    }
+
+    private int searchRecursive(T data, Node<T> current) {
+        if (current == null) return -1;
+        if (current.data == data) return 0;
+        int result = searchRecursive(data, current.next);
+
+        return result == -1 ? -1 : 1+result;
+    }
+
     private void printRecursively(Node<T> node) {
         System.out.println(" " + node.data);
         if (node.next == null) return;

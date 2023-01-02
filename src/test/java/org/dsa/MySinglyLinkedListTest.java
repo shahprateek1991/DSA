@@ -149,4 +149,40 @@ class MySinglyLinkedListTest {
 
         assertEquals(3, linkedList.size());
     }
+
+    @Test
+    void shouldSearchTheFirstOccurrenceInList() {
+        MySinglyLinkedList<String> linkedList = new MySinglyLinkedList<>();
+        linkedList.addAtEnd("Three");
+        linkedList.addAtEnd("Two");
+        linkedList.addAtEnd("One");
+
+        assertEquals(1,linkedList.search("Two"));
+        assertEquals(-1,linkedList.search("FIve"));
+    }
+
+    @Test
+    void shouldReturnNegativeOneGivenSearchInEmptyList() {
+        MySinglyLinkedList<String> linkedList = new MySinglyLinkedList<>();
+
+        assertEquals(-1,linkedList.search("FIve"));
+    }
+
+    @Test
+    void shouldSearchTheFirstOccurrenceInListUsingRecursive() {
+        MySinglyLinkedList<String> linkedList = new MySinglyLinkedList<>();
+        linkedList.addAtEnd("Three");
+        linkedList.addAtEnd("Two");
+        linkedList.addAtEnd("One");
+
+        assertEquals(1,linkedList.searchRecursive("Two"));
+        assertEquals(-1,linkedList.searchRecursive("FIve"));
+    }
+
+    @Test
+    void shouldReturnNegativeOneGivenSearchInEmptyListUsingRecursive() {
+        MySinglyLinkedList<String> linkedList = new MySinglyLinkedList<>();
+
+        assertEquals(-1,linkedList.searchRecursive("FIve"));
+    }
 }
