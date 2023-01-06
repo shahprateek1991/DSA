@@ -36,6 +36,58 @@ public class MyDoublyLinkedList<T> {
         return current.data;
     }
 
+    public T deleteFirst() {
+        if (head == null) return null;
+        T deletedData = head.data;
+
+        if (size == 1) {
+            size--;
+            head = null;
+            return deletedData;
+        }
+
+        size--;
+        head = head.next;
+        head.previous = null;
+        return deletedData;
+    }
+
+    public T deleteLast() {
+        if (head == null) return null;
+
+        if (size == 1) {
+            size--;
+            T deletedData = head.data;
+            head = null;
+            return deletedData;
+        }
+
+        Node<T> current = head;
+        while (current.next.next !=null) {
+            current = current.next;
+        }
+        T deletedData = current.next.data;
+        size--;
+        current.next = null;
+        return deletedData;
+    }
+
+    public void reverse() {
+        if (head == null || head.next == null) return;
+
+        Node<T> current = head;
+        Node<T> prev = null;
+        while (current != null) {
+            prev = current.previous;
+            current.previous = current.next;
+            current.next = prev;
+
+            current= current.previous;
+        }
+
+        head = prev.previous;
+    }
+
     public static class Node<T> {
         private T data;
         private Node<T> previous;
