@@ -116,6 +116,16 @@ public class Array {
         return difference;
     }
 
+    public static int maxProfitInTrades(int[] arr) {
+        int profit = 0;
+        for (int i = 1; i<arr.length; i++) {
+            if (arr[i-1] <= arr[i]) {
+                profit = profit + (arr[i] - arr[i-1]);
+            }
+        }
+        return profit;
+    }
+
     public static void frequencyInSortedArray(int[] arr) {
         for (int i = 0; i<arr.length;) {
             int count = 0;
@@ -156,6 +166,21 @@ public class Array {
         return result;
     }
 
+    public static int maximumSumInCircularSubArray(int[] arr) {
+        int result = arr[0];
+        for (int i = 0; i< arr.length; i++) {
+            int currentSum = arr[i];
+            int currentMax = arr[i];
+            for (int j =1; j<arr.length; j++) {
+                int index = (i+j)%arr.length;
+                currentSum = currentSum + arr[index];
+                currentMax = Math.max(currentSum, currentMax);
+            }
+            result = Math.max(result, currentMax);
+        }
+        return result;
+    }
+
     public static int maximumOddEvenPair(int[] arr) {
         int result = 1;
         int current = 1;
@@ -167,6 +192,28 @@ public class Array {
             } else {
                 current = 1;
             }
+        }
+
+        return result;
+    }
+
+    public static int trapRainWater(int[] heights) {
+        int result = 0;
+        int[] leftMax = new int[heights.length];
+        int[] rightMax = new int[heights.length];
+
+        leftMax[0] = heights[0];
+        for (int i = 1; i<heights.length; i++) {
+            leftMax[i] = Math.max(leftMax[i-1], heights[i]);
+        }
+
+        rightMax[heights.length-1] = heights[heights.length-1];
+        for (int i = heights.length-2; i>=0; i--) {
+            rightMax[i] = Math.max(rightMax[i+1], heights[i]);
+        }
+
+        for (int i = 1; i<heights.length-1; i++) {
+            result = result + (Math.min(leftMax[i], rightMax[i])-heights[i]);
         }
 
         return result;

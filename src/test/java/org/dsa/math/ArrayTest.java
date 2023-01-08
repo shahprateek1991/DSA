@@ -77,6 +77,14 @@ class ArrayTest {
     }
 
     @Test
+    void shouldReturnTheMaximumProfitForATrade() {
+        assertEquals(13, Array.maxProfitInTrades(new int[] {1,5,3,8,12}));
+        assertEquals(0, Array.maxProfitInTrades(new int[] {30,20,10}));
+        assertEquals(20, Array.maxProfitInTrades(new int[] {10,20,30}));
+        assertEquals(11, Array.maxProfitInTrades(new int[] {1,5,3,1,2,8}));
+    }
+
+    @Test
     void shouldPrintFrequencyOfNumbersInSortedArray() {
         Array.frequencyInSortedArray(new int[]{10,20,20,30,30,30,30});
         Array.frequencyInSortedArray(new int[]{10,10,10,30,40});
@@ -102,10 +110,26 @@ class ArrayTest {
     }
 
     @Test
+    void shouldReturnMaximumSumOfCircularSubArray() {
+        assertEquals(15, Array.maximumSumInCircularSubArray(new int[]{10,5,-5}));
+        assertEquals(12, Array.maximumSumInCircularSubArray(new int[]{5,-2,3,4}));
+        assertEquals(5, Array.maximumSumInCircularSubArray(new int[]{2,3,-4}));
+        assertEquals(12, Array.maximumSumInCircularSubArray(new int[]{8,-4,3,-5,4}));
+        assertEquals(10, Array.maximumSumInCircularSubArray(new int[]{-3,4,6,-2}));
+        assertEquals(13, Array.maximumSumInCircularSubArray(new int[]{-8,7,6}));
+        assertEquals(17, Array.maximumSumInCircularSubArray(new int[]{3,-4,5,6,-8,7}));
+    }
+
+    @Test
     void shouldReturnMaximumLengthOddEvenSeries() {
         assertEquals(3, Array.maximumOddEvenPair(new int[]{5,10,20,6,3,8}));
         assertEquals(3, Array.maximumOddEvenPair(new int[]{10,12,14,7,8}));
         assertEquals(4, Array.maximumOddEvenPair(new int[]{7,10,13,14}));
         assertEquals(1, Array.maximumOddEvenPair(new int[]{10,12,8}));
+    }
+
+    @Test
+    void shouldReturnTheAmountOfTrapperRainWater() {
+        assertEquals(6, Array.trapRainWater(new int[] {3,0,1,2,5}));
     }
 }
