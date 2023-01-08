@@ -22,6 +22,22 @@ public class MyDoublyLinkedList<T> {
         size++;
     }
 
+    public void addAtEnd(T data) {
+        Node<T> node = new Node<>(data);
+        if (head == null) {
+            head = node;
+            size++;
+            return;
+        }
+        Node<T> current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = node;
+        node.previous = current;
+        size++;
+    }
+
     public int size() {
         return size;
     }

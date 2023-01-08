@@ -22,6 +22,21 @@ class MyDoublyLinkedListTest {
     }
 
     @Test
+    void shouldAddEntriesAtEndOfTheList() {
+        MyDoublyLinkedList<String> linkedList = new MyDoublyLinkedList<>();
+
+        linkedList.addAtEnd("One");
+        linkedList.addAtEnd("Two");
+        linkedList.addAtEnd("Three");
+
+        assertEquals(3, linkedList.size());
+        assertEquals("One", linkedList.get(0));
+        assertEquals("Two", linkedList.get(1));
+        assertEquals("Three", linkedList.get(2));
+        assertNull( linkedList.get(3));
+    }
+
+    @Test
     void shouldReverseDoublyLinkedList() {
         MyDoublyLinkedList<String> linkedList = new MyDoublyLinkedList<>();
 
