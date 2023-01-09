@@ -1,9 +1,8 @@
-package org.dsa.math;
+package org.dsa;
 
-import org.dsa.Power;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PowerTest {
 

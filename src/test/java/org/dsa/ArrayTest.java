@@ -1,6 +1,5 @@
-package org.dsa.math;
+package org.dsa;
 
-import org.dsa.Array;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

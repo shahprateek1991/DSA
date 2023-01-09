@@ -24,4 +24,26 @@ public class MyString {
             return isSubSequenceRecursive(s1.substring(1), s2);
         }
     }
+
+    public static String reverseWords(String s) {
+        char[] arr = s.toCharArray();
+        int lastWordStart  = 0;
+        for (int i = 0; i<= arr.length; i++) {
+            if (i == arr.length || arr[i] == ' ') {
+                int low = lastWordStart;
+                int high = i-1;
+                while (low < high) {
+                    char temp = arr[low];
+                    arr[low] = arr[high];
+                    arr[high] = temp;
+                    low++;
+                    high--;
+                }
+
+                lastWordStart = i+1;
+            }
+        }
+
+        return new String(arr);
+    }
 }

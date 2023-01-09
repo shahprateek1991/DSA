@@ -25,4 +25,14 @@ class MyStringTest {
         assertTrue(MyString.isSubSequenceRecursive("abc", "bc"));
         assertTrue(MyString.isSubSequenceRecursive("abcd", "ad"));
     }
+
+    @Test
+    void shouldReverseWordsInString() {
+        assertEquals("dcba fed zyx", MyString.reverseWords("abcd def xyz"));
+        assertEquals(" ", MyString.reverseWords(" "));
+        assertEquals(" abcde", MyString.reverseWords(" edcba"));
+        assertEquals("abcde ", MyString.reverseWords("edcba "));
+        assertEquals("abcde", MyString.reverseWords("edcba"));
+        assertEquals(" abcde ", MyString.reverseWords(" edcba "));
+    }
 }

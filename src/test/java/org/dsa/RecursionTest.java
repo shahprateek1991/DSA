@@ -1,6 +1,5 @@
-package org.dsa.math;
+package org.dsa;
 
-import org.dsa.Recursion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
