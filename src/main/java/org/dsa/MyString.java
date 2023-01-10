@@ -1,5 +1,7 @@
 package org.dsa;
 
+import java.util.Arrays;
+
 public class MyString {
 
     public static boolean isSubSequence(String s1, String s2){
@@ -24,6 +26,40 @@ public class MyString {
             return isSubSequenceRecursive(s1.substring(1), s2);
         }
     }
+
+    public static int leftMostRepeatingCharacter(String s) {
+        int[] count = new int[256];
+        Arrays.fill(count, -1);
+        int result = Integer.MAX_VALUE;
+
+        for (int i = 0; i<s.length(); i++) {
+            char character = s.charAt(i);
+            if (count[character] == -1) {
+                count[character] = i;
+            } else {
+                result = Math.min(result, count[character]);
+                count[character] = Math.min(count[character], i);
+            }
+        }
+
+        return result == Integer.MAX_VALUE ? -1 : result;
+    }
+    public static int leftMostNonRepeatingCharacter(String s) {
+        int[] count = new int[256];
+        Arrays.fill(count, -1);
+        int result = Integer.MAX_VALUE;
+
+        for (int i = s.length()-1; i>=0; i--) {
+            char character = s.charAt(i);
+            if (count[character] == -1) {
+                count[character] = i;
+                result = i;
+            }
+        }
+
+        return result == Integer.MAX_VALUE ? -1 : result;
+    }
+
 
     public static String reverseWords(String s) {
         char[] arr = s.toCharArray();

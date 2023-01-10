@@ -27,6 +27,20 @@ class MyStringTest {
     }
 
     @Test
+    void shouldReturnLeftMostRepeatingCharacter() {
+        assertEquals(0, MyString.leftMostRepeatingCharacter("geeksforgeeks"));
+        assertEquals(1, MyString.leftMostRepeatingCharacter("abbcc"));
+        assertEquals(-1, MyString.leftMostRepeatingCharacter("abcd"));
+    }
+
+    @Test
+    void shouldReturnLeftMostNonRepeatingCharacter() {
+        assertEquals(5, MyString.leftMostNonRepeatingCharacter("geeksforgeeks"));
+        assertEquals(-1, MyString.leftMostNonRepeatingCharacter("abcabc"));
+        assertEquals(0, MyString.leftMostNonRepeatingCharacter("apple"));
+    }
+
+    @Test
     void shouldReverseWordsInString() {
         assertEquals("dcba fed zyx", MyString.reverseWords("abcd def xyz"));
         assertEquals(" ", MyString.reverseWords(" "));
