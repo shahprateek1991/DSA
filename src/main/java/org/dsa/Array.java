@@ -219,4 +219,83 @@ public class Array {
         return result;
     }
 
+    public static int majorityElement(int[] arr) {
+        int count = 1;
+        int currentMajorityElement = arr[0];
+        for (int i = 1; i<arr.length; i++) {
+            if (currentMajorityElement == arr[i]) {
+                count++;
+            } else {
+                count--;
+            }
+
+            if (count == 0) {
+                currentMajorityElement = arr[i];
+                count = 1;
+            }
+        }
+        count = 0;
+        for (int i = 0; i< arr.length; i++) {
+            if (arr[i] == currentMajorityElement) {
+                count++;
+            }
+            if (count > arr.length/2) return i;
+        }
+        return -1;
+    }
+
+    public static int equilibriumPoint(int[] arr) {
+        int sum = 0;
+        int sumLeft = 0;
+        for (int j : arr) {
+            sum = sum + j;
+        }
+
+        for (int j : arr) {
+            sum = sum - j;
+            if (sum == sumLeft) return j;
+
+            sumLeft = sumLeft + j;
+
+        }
+        return -1;
+    }
+
+    public static int maxSumOfKConsecutiveElements(int[] arr, int k) {
+        int currentSum = 0;
+        for (int i = 0; i<k; i++) {
+            currentSum = currentSum + arr[i];
+        }
+        int maxSum = currentSum;
+
+        for (int i = k; i < arr.length; i++) {
+            currentSum = currentSum-arr[i-k]+arr[i];
+            maxSum = Math.max(maxSum, currentSum);
+        }
+
+        return maxSum;
+    }
+
+    public static void minimumConsecutiveFlips(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i-1] != arr[i]) {
+                if (arr[i] != arr[0]) {
+                    System.out.println();
+                    System.out.print("From " + i + " to ");
+                } else {
+                    System.out.println(i-1);
+                }
+            }
+        }
+
+        if (arr[arr.length-1] != arr[0]) {
+            System.out.println(arr.length-1);
+        }
+
+        System.out.println(">>>>>>>>>>>>> Finish <<<<<<<<<<<<<");
+
+    }
+
+
+
 }

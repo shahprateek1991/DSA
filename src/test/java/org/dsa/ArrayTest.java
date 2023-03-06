@@ -130,5 +130,36 @@ class ArrayTest {
     @Test
     void shouldReturnTheAmountOfTrapperRainWater() {
         assertEquals(6, Array.trapRainWater(new int[] {3,0,1,2,5}));
+        assertEquals(6, Array.trapRainWater(new int[] {0,1,0,2,1,0,1,3,2,1,2,1}));
+        assertEquals(9, Array.trapRainWater(new int[] {4,2,0,3,2,5}));
+    }
+
+    @Test
+    void shouldReturnMajorityElementIndex() {
+        assertEquals(-1, Array.majorityElement(new int[] {1,2,3}));
+        assertEquals(-1, Array.majorityElement(new int[] {1,2,3,1,1,3}));
+        assertEquals(3, Array.majorityElement(new int[] {1,2,1,1,3}));
+    }
+
+    @Test
+    void shouldReturnEquilibriumElement() {
+        assertEquals(20, Array.equilibriumPoint(new int[] {3,4,8,-9,20,6}));
+        assertEquals(4, Array.equilibriumPoint(new int[] {4,2,-2}));
+        assertEquals(-1, Array.equilibriumPoint(new int[] {4,2,2}));
+    }
+
+    @Test
+    void shouldReturnMaxElementOfKConsecutiveElements() {
+        assertEquals(45, Array.maxSumOfKConsecutiveElements(new int[] {1,8,30,-5,20,7}, 3));
+        assertEquals(96, Array.maxSumOfKConsecutiveElements(new int[] {5,-10,6,90,3}, 2));
+    }
+
+    @Test
+    void shouldPrintMinimumConsecutiveBitsToBeFlipped() {
+        Array.minimumConsecutiveFlips(new int[]{1,1,0,0,0,1});
+        Array.minimumConsecutiveFlips(new int[]{1,0,0,0,1,0,0,1,1,1,1});
+        Array.minimumConsecutiveFlips(new int[]{1,1,1});
+        Array.minimumConsecutiveFlips(new int[]{0,1});
+        Array.minimumConsecutiveFlips(new int[]{0,0,1,1,0,0,1,1,0,1});
     }
 }
