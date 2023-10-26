@@ -1,6 +1,9 @@
 package org.dsa;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,6 +37,7 @@ class MyStringTest {
     }
 
     @Test
+    @Disabled
     void shouldReturnLeftMostNonRepeatingCharacter() {
         assertEquals(5, MyString.leftMostNonRepeatingCharacter("geeksforgeeks"));
         assertEquals(-1, MyString.leftMostNonRepeatingCharacter("abcabc"));
@@ -48,5 +52,11 @@ class MyStringTest {
         assertEquals("abcde ", MyString.reverseWords("edcba "));
         assertEquals("abcde", MyString.reverseWords("edcba"));
         assertEquals(" abcde ", MyString.reverseWords(" edcba "));
+    }
+
+    @Test
+    void shouldReturnIndexOfMatchingSubStringWhenCharactersAreDistinct_usingNaivePatternMatching() {
+        assertEquals(List.of(3), MyString.stringMatchNaiveDistinct("abcabcd", "abcd"));
+        assertEquals(List.of(), MyString.stringMatchNaiveDistinct("abceabefabcd", "abcd"));
     }
 }

@@ -1,9 +1,7 @@
 package org.dsa;
 
-import java.util.ArrayDeque;
+import java.util.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
 
 public class BinaryTree<T> {
     private Node<T> root;
@@ -26,6 +24,20 @@ public class BinaryTree<T> {
     public List<T> inOrderTraversal() {
         List<T> results = new ArrayList<>();
         inOrderTraversal(root, results);
+
+        return results;
+    }
+
+    public List<T> inOrderTraversalIterative() {
+        List<T> results = new ArrayList<>();
+        Stack<Node<T>> stack = new Stack<>();
+        Node<T> current = root;
+        while (current!=null || !stack.isEmpty() ) {
+            while (current!=null) {
+                stack.push(current);
+                current = current.left;
+            }
+        }
 
         return results;
     }
@@ -126,18 +138,6 @@ public class BinaryTree<T> {
                 && isChildrenSumPropertyApplicable(node.left)
                 && isChildrenSumPropertyApplicable(node.right);
     }
-
-//    public Node<T> toDoublyLinkedList() {
-//
-//    }
-//
-//    private Node<T> toDoublyLinkedList(Node<T> node, Node<T> parent) {
-//        if (node == null) return node;
-//        Node<T> leftNode = toDoublyLinkedList(node.left, node);
-//
-//
-//
-//    }
 
     public static class Node<T> {
         T data;

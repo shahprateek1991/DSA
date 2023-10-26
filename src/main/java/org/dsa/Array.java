@@ -1,8 +1,9 @@
 package org.dsa;
 
+import java.util.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Array {
 
@@ -216,6 +217,7 @@ public class Array {
             result = result + (Math.min(leftMax[i], rightMax[i])-heights[i]);
         }
 
+
         return result;
     }
 
@@ -294,6 +296,43 @@ public class Array {
 
         System.out.println(">>>>>>>>>>>>> Finish <<<<<<<<<<<<<");
 
+    }
+
+    public static boolean subArrayWithGivenSum(int[] arr, int requiredSum) {
+        int start = 0;
+        int sum = 0;
+
+        for (int end = 0; end < arr.length; end++) {
+            sum = sum + arr[end];
+
+            while (requiredSum < sum) {
+                sum = sum - arr[start];
+                start++;
+            }
+
+            if (sum == requiredSum) return true;
+        }
+
+        return false;
+
+    }
+
+    public static int[] productExceptSelf(int[] nums) {
+
+        int[] res = new int[nums.length];
+        res[0] = 1;
+        for(int i = 1; i< nums.length; i++) {
+            res[i] = res[i-1] * nums[i-1];
+        }
+
+        int runningMultiply = 1;
+
+        for(int i = nums.length-1; i<=0; i--) {
+            res[i] = res[i] * runningMultiply;
+            runningMultiply = runningMultiply * nums[i];
+        }
+
+        return res;
     }
 
 

@@ -125,6 +125,7 @@ public class MySinglyLinkedList<T> {
         return searchRecursive(data, head);
     }
 
+
     private int searchRecursive(T data, Node<T> current) {
         if (current == null) return -1;
         if (current.data == data) return 0;

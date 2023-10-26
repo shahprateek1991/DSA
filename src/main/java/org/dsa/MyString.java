@@ -1,6 +1,8 @@
 package org.dsa;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MyString {
 
@@ -81,5 +83,30 @@ public class MyString {
         }
 
         return new String(arr);
+    }
+
+    public static List<Integer> stringMatchNaiveDistinct(String source, String subString) {
+        char[] sourceChars = source.toCharArray();
+        char[] subStrChar = subString.toCharArray();
+        List<Integer> results = new ArrayList<>();
+
+        for (int i = 0; i< sourceChars.length; i++) {
+            int index = 0;
+            int res = i;
+
+            while (index < subStrChar.length && sourceChars[i] == subStrChar[index]) {
+                index++;
+                i++;
+            }
+
+            if (index == subString.length()) {
+                results.add(res);
+            }
+
+            i--;
+
+        }
+
+        return results;
     }
 }

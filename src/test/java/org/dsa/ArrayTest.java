@@ -162,4 +162,16 @@ class ArrayTest {
         Array.minimumConsecutiveFlips(new int[]{0,1});
         Array.minimumConsecutiveFlips(new int[]{0,0,1,1,0,0,1,1,0,1});
     }
+
+    @Test
+    void shouldCheckIfSubArrayExistsWithGivenSum() {
+        assertTrue(Array.subArrayWithGivenSum(new int[]{1,4,20,3,10,5}, 33));
+        assertTrue(Array.subArrayWithGivenSum(new int[]{1,4,0,0,3,10,5}, 7));
+        assertFalse(Array.subArrayWithGivenSum(new int[]{2,4}, 3));
+    }
+
+    @Test
+    void shouldReturnProductOfArrayExceptItself() {
+        assertArrayEquals(new int[] {24,12,8,6}, Array.productExceptSelf(new int[] {1,2,3,4}));
+    }
 }
